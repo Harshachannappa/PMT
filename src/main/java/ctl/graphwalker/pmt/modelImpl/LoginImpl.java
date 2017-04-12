@@ -6,8 +6,7 @@ import org.graphwalker.java.annotation.AfterExecution;
 import org.graphwalker.java.annotation.BeforeElement;
 import org.graphwalker.java.annotation.BeforeExecution;
 import org.graphwalker.java.annotation.GraphWalker;
-
-
+import org.openqa.selenium.WebDriver;
 
 import ctl.graphwalker.pmt.Login;
 import ctl.graphwalker.pmt.helper.Helper;
@@ -17,6 +16,8 @@ import ctl.graphwalker.pmt.helper.Helper;
 @GraphWalker(value = "random(edge_coverage(100))", start = "e_StartClient")
  
 public class LoginImpl extends ExecutionContext implements Login {
+	
+	WebDriver driver=null;
 
 	public void v_Home() {
 		// TODO Auto-generated method stub
@@ -49,8 +50,7 @@ public class LoginImpl extends ExecutionContext implements Login {
 	}
 
 	public void e_StartClient() {
-		Helper.getInstance().get("http://localhost:9966/petclinic/");
-		
+		driver.get("http://10.140.0.99:2010/T2-T3Code/jsp/logon.jsp");		
 	}
 
 	public void e_Close() {
@@ -59,7 +59,7 @@ public class LoginImpl extends ExecutionContext implements Login {
 	}
 
 	public void e_Init() {
-		// TODO Auto-generated method stub
+		driver=Helper.getInstance();
 		
 	}
 
