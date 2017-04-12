@@ -1,12 +1,15 @@
 package ctl.graphwalker.pmt.modelImpl;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.graphwalker.core.machine.ExecutionContext;
 import org.graphwalker.java.annotation.AfterElement;
 import org.graphwalker.java.annotation.AfterExecution;
 import org.graphwalker.java.annotation.BeforeElement;
 import org.graphwalker.java.annotation.BeforeExecution;
 import org.graphwalker.java.annotation.GraphWalker;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import ctl.graphwalker.pmt.Login;
 import ctl.graphwalker.pmt.helper.Helper;
@@ -45,7 +48,11 @@ public class LoginImpl extends ExecutionContext implements Login {
 	}
 
 	public void v_LoginPrompted() {
-		// TODO Auto-generated method stub
+		
+		 //Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("cuid"))).clear();
+	    //    Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.id("cuid")))
+	      //      .sendKeys("");
+	    //    Helper.getWaiter().until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type=\"submit\"]"))).click();
 		
 	}
 
