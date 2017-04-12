@@ -13,7 +13,7 @@ import ctl.graphwalker.pmt.helper.Helper;
 
 
 
-@GraphWalker(value = "random(edge_coverage(100))", start = "e_StartClient")
+@GraphWalker(value = "random(edge_coverage(100))", start = "e_Init")
  
 public class LoginImpl extends ExecutionContext implements Login {
 	
