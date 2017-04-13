@@ -35,6 +35,11 @@ public class LoginImpl extends ExecutionContext implements Login {
 	public void e_ValidPremiumCredentials() {
 		// TODO Auto-generated method stub
 		
+		driver.findElement(By.name("cuid")).sendKeys("AB72075");
+		driver.findElement(By.name("password")).sendKeys("Ctli@075");
+		driver.findElement(By.xpath("/html/body/table/tbody/tr[1]/td/table/tbody/tr[5]/td[4]/table/tbody/tr[2]/td/form/table/tbody/tr[3]/td[1]/input[1]")).click();
+		driver.findElement(By.xpath("/html/body/table/tbody/tr[1]/td/table/tbody/tr/td[3]/a/img")).click();
+		
 	}
 
 	public void v_applicationDown() {
@@ -53,11 +58,13 @@ public class LoginImpl extends ExecutionContext implements Login {
 	    //    Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.id("cuid")))
 	      //      .sendKeys("");
 	    //    Helper.getWaiter().until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type=\"submit\"]"))).click();
-		
+		driver.switchTo().alert().accept();
 	}
 
 	public void e_StartClient() {
-		driver.get("http://10.140.0.99:2010/T2-T3Code/jsp/logon.jsp");		
+		
+		String baseurl="http://"+"AB72075"+":"+"Ctli@075"+"@"+"10.140.0.99:2010/T2-T3Code/jsp/logon.jsp";
+		driver.get(baseurl);		
 	}
 
 	public void e_Close() {
@@ -93,7 +100,7 @@ public class LoginImpl extends ExecutionContext implements Login {
         System.out.println("PetClinic: Any cleanup  steps happens here. " +
                            "The annotation @AfterExecution makes sure that after the test is done, " +
                            "this method is called last.");
-        Helper.tearDown();
+//        Helper.tearDown();
     }
 
     @BeforeElement
