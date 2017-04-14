@@ -82,6 +82,18 @@ public class LoginImpl extends ExecutionContext implements Login {
 		
 	}
 
+	@Override
+	public void e_ReportIssue() {
+		//click the report issue Link
+		
+	}
+
+	@Override
+	public void v_ReprtIssue() {
+		// verify if we reach to right Report issue Page
+		
+	}
+	
 	@BeforeExecution
     public void setup() {
         System.out.println("PetClinic: Any setup steps happens here. " +
@@ -107,6 +119,8 @@ public class LoginImpl extends ExecutionContext implements Login {
     public void printAfterElement() {
         System.out.println("After element " + getCurrentElement().getName());
     }
+
+
 
 	
 }
