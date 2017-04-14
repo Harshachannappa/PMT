@@ -24,6 +24,8 @@ public class LoginImpl extends ExecutionContext implements Login {
 	public void v_Home() {
 		//verify the home screen of application.
 		
+		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/table/tbody/tr/td/img")));
+		
 	}
 
 	/* Added Helper.getWaiter to avoid quick hit. Its expecting elemet before it appears  */
@@ -49,9 +51,8 @@ public class LoginImpl extends ExecutionContext implements Login {
 	}
 
 	public void v_LoginPrompted() {
-		//validate the login page of application
-			
-		 //Helper.getWaiter().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/table/tbody/tr..../td[2]/img")));
+		//validate the login page of application			
+	Helper.getWaiter().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/table/tbody/tr[1]/td/table/tbody/tr[5]/td[4]/table/img")));
 		
 	}
    
