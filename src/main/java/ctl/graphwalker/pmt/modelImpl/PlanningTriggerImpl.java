@@ -1,10 +1,11 @@
 package ctl.graphwalker.pmt.modelImpl;
 
 import org.graphwalker.core.machine.ExecutionContext;
-
+import org.graphwalker.java.annotation.GraphWalker;
 
 import ctl.graphwalker.pmt.PlanningTrigger;
 
+@GraphWalker(value = "random(edge_coverage(100))")
 public class PlanningTriggerImpl extends ExecutionContext implements PlanningTrigger {
 
 	@Override

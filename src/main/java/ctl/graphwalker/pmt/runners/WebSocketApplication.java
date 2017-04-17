@@ -6,20 +6,21 @@ import org.graphwalker.java.test.Result;
 import org.graphwalker.java.test.TestExecutor;
 import org.graphwalker.websocket.WebSocketServer;
 
+import ctl.graphwalker.pmt.modelImpl.*;
+
 import java.io.IOException;
 
 
 /**
- * @author Nils Olsson
+ * @author Rakesh Upadhayaya
  */
 public class WebSocketApplication {
 
-    /*public static void main(String[] args) throws IOException {
-        Executor executor = new TestExecutor(PetClinic.class,
-                FindOwners.class,
-                NewOwner.class,
-                OwnerInformation.class,
-                Veterinariens.class);
+    public static void main(String[] args) throws IOException {
+    	 Executor executor = new TestExecutor(LoginImpl.class,
+                 ApplicationUpdateImpl.class,
+                 PlanningTriggerImpl.class,
+                 ReportIssueImpl.class);
 
         WebSocketServer server = new WebSocketServer(8887, executor.getMachine());
         server.start();
@@ -31,5 +32,5 @@ public class WebSocketApplication {
             }
         }
         System.out.println("Done: [" + result.getResults().toString(2) + "]");
-    }*/
+    }
 }

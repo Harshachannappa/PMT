@@ -1,9 +1,11 @@
 package ctl.graphwalker.pmt.modelImpl;
 
 import org.graphwalker.core.machine.ExecutionContext;
+import org.graphwalker.java.annotation.GraphWalker;
 
 import ctl.graphwalker.pmt.ApplicationUpdate;
 
+@GraphWalker(value = "random(edge_coverage(100))")
 public class ApplicationUpdateImpl extends ExecutionContext implements ApplicationUpdate {
 
 	@Override
