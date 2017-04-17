@@ -78,11 +78,12 @@ public class Helper {
 
    		}
       	
-      	public static void alertwindow(WebDriver driver)
-      	{
-      		Helper.getWaiter().until(ExpectedConditions.alertIsPresent());
-   		driver.switchTo().alert().accept();	
-      	}
+
+   	public static void alertwindow()
+   	{
+   		Helper.getWaiter().until(ExpectedConditions.alertIsPresent());
+		getInstance().switchTo().alert().accept();	
+   	}
       	
    	public static void FrameHandle(WebDriver driver)
    	{

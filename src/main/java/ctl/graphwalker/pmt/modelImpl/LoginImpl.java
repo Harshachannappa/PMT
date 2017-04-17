@@ -31,19 +31,19 @@ public class LoginImpl extends ExecutionContext implements Login {
 		
 		
 		//Verifying the homepage element
-		Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='loading']/form/table[1]/tbody/tr/td[3]"))).getText().contains("Effort should be entered in HH:MM format"));
-		
+		//Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='loading']/form/table[1]/tbody/tr/td[3]"))).getText().contains("Effort should be entered in HH:MM format"));
+		Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("html/body/table/tbody/tr[2]/td/form/table[2]/tbody/tr/td/font[1]/b"))).getText().contains("Approved/Active Projects"));
 	}
 
 	/* Added Helper.getWaiter to avoid quick hit. Its expecting element before it appears  */
 	public void e_ValidPremiumCredentials() {	
 		
 		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("cuid"))).clear();
-		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("cuid"))).sendKeys("AB72075");
+		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("cuid"))).sendKeys("mmenom");
 		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("password")))
-        .sendKeys("Ctli@075");
+        .sendKeys("122Meenu");
 		driver.findElement(By.xpath("/html/body/table/tbody/tr[1]/td/table/tbody/tr[5]/td[4]/table/tbody/tr[2]/td/form/table/tbody/tr[3]/td[1]/input[1]")).click();
-		Helper.alertwindow(driver);
+		
 		
 	}
 
@@ -71,13 +71,13 @@ public class LoginImpl extends ExecutionContext implements Login {
    
 	@Override
 	public void v_BaseUrl() {
-		String baseurl="http://"+"AB72075"+":"+"Ctli@075"+"@"+"10.140.0.99:2010/T2-T3Code/jsp/logon.jsp";
+		String baseurl="http://"+"mmenon"+":"+"122Meenu"+"@"+"10.140.0.99:2010/T2-T3Code/jsp/logon.jsp";
 		driver.get(baseurl);
 		
 	}
 	
 	public void e_StartClient() {
-		Helper.alertwindow(driver);			
+		Helper.alertwindow();			
 	}
 
 	public void e_Init() {
