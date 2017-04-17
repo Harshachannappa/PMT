@@ -25,14 +25,14 @@ import ctl.graphwalker.pmt.helper.Helper;
  
 public class LoginImpl extends ExecutionContext implements Login {
 	
-	WebDriver driver=null;
+	
 
 	public void v_Home() {
 		
 		
 		//Verifying the homepage element
 		//Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='loading']/form/table[1]/tbody/tr/td[3]"))).getText().contains("Effort should be entered in HH:MM format"));
-		Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("html/body/table/tbody/tr[2]/td/form/table[2]/tbody/tr/td/font[1]/b"))).getText().contains("Approved/Active Projects"));
+		//Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@name='Search']"))).getText().contains("Search"));
 	}
 
 	/* Added Helper.getWaiter to avoid quick hit. Its expecting element before it appears  */
@@ -42,7 +42,7 @@ public class LoginImpl extends ExecutionContext implements Login {
 		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("cuid"))).sendKeys("mmenom");
 		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("password")))
         .sendKeys("122Meenu");
-		driver.findElement(By.xpath("/html/body/table/tbody/tr[1]/td/table/tbody/tr[5]/td[4]/table/tbody/tr[2]/td/form/table/tbody/tr[3]/td[1]/input[1]")).click();
+		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/table/tbody/tr[1]/td/table/tbody/tr[5]/td[4]/table/tbody/tr[2]/td/form/table/tbody/tr[3]/td[1]/input[1]"))).click();
 		
 		
 	}
@@ -83,7 +83,7 @@ public class LoginImpl extends ExecutionContext implements Login {
 	}
 
 	public void e_Init() {
-		driver=Helper.getInstance();
+		Helper.getInstance();
 		
 	}
 
@@ -100,7 +100,7 @@ public class LoginImpl extends ExecutionContext implements Login {
 
 	Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("cuid"))).sendKeys("AB62075");
 	Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("password"))).sendKeys("Ctli@075");
-	driver.findElement(By.xpath("/html/body/table/tbody/tr[1]/td/table/tbody/tr[5]/td[4]/table/tbody/tr[2]/td/form/table/tbody/tr[3]/td[1]/input[1]")).click();
+	Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/table/tbody/tr[1]/td/table/tbody/tr[5]/td[4]/table/tbody/tr[2]/td/form/table/tbody/tr[3]/td[1]/input[1]"))).click();
 	WebElement errormessage=Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(text(),'Invalid CUID')]")));
 	String expectedtext="Invalid CUID/Password";
 	String Actualtxt=errormessage.getText();
@@ -126,8 +126,8 @@ public class LoginImpl extends ExecutionContext implements Login {
 		
 		Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='idHomePageNewItem']"))).getText().contains("Add new item"));
 		Helper.getWaiter();
-		Helper.windowhandles(driver);
-     		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='idHomePageNewItem']"))).click();
+		Helper.windowhandles();
+     	Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='idHomePageNewItem']"))).click();
 		
 	}
 	
