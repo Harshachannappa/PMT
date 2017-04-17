@@ -38,7 +38,7 @@ public class LoginImpl extends ExecutionContext implements Login {
 	/* Added Helper.getWaiter to avoid quick hit. Its expecting element before it appears  */
 	public void e_ValidPremiumCredentials() {	
 		
-		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("cuid"))).clear();
+		//Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("cuid"))).clear();
 		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("cuid"))).sendKeys("mmenom");
 		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("password")))
         .sendKeys("122Meenu");
@@ -71,13 +71,15 @@ public class LoginImpl extends ExecutionContext implements Login {
    
 	@Override
 	public void v_BaseUrl() {
-		String baseurl="http://"+"mmenon"+":"+"122Meenu"+"@"+"10.140.0.99:2010/T2-T3Code/jsp/logon.jsp";
-		driver.get(baseurl);
+		
+		Helper.getInstance().get("http://10.140.0.99:2010/T2-T3Code/jsp/logon.jsp");
+//		String baseurl="http://"+"mmenon"+":"+"122Meenu"+"@"+"10.140.0.99:2010/T2-T3Code/jsp/logon.jsp";
+//		driver.get(baseurl);
 		
 	}
 	
 	public void e_StartClient() {
-		Helper.alertwindow();			
+	//	Helper.alertwindow();			
 	}
 
 	public void e_Init() {
@@ -112,8 +114,8 @@ public class LoginImpl extends ExecutionContext implements Login {
 		//click the report issue Link
 				
 		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a/font/strong[text()='CLICK HERE']"))).click();
-		Alert alert = Helper.getWaiter().until(ExpectedConditions.alertIsPresent());     
-		alert.authenticateUsing(new UserAndPassword("user" , "pass"));
+//		Alert alert = Helper.getWaiter().until(ExpectedConditions.alertIsPresent());     
+//		alert.authenticateUsing(new UserAndPassword("user" , "pass"));
 		
 			}
 

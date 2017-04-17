@@ -2,6 +2,7 @@ package ctl.graphwalker.pmt.helper;
 
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -51,7 +52,7 @@ public class Helper {
      * Creates an instance of the Firefox WebDriver.
      */
     private static class WebDriverHolder {
-        private static final WebDriver INSTANCE = new FirefoxDriver();
+        private static final WebDriver INSTANCE = new ChromeDriver();
     }
 
     public static WebDriverWait getWaiter() {
@@ -64,6 +65,7 @@ public class Helper {
      * @return the singleton webdriver object
      */
     public static WebDriver getInstance() {
+    	System.setProperty("webdriver.chrome.driver","C:\\Users\\ab72075\\Downloads\\chromedriver_win32\\chromedriver.exe");
         return WebDriverHolder.INSTANCE;
     }
     
