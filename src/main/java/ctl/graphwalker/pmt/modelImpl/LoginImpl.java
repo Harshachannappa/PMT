@@ -9,9 +9,11 @@ import org.graphwalker.java.annotation.BeforeElement;
 import org.graphwalker.java.annotation.BeforeExecution;
 import org.graphwalker.java.annotation.GraphWalker;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.security.UserAndPassword;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import ctl.graphwalker.pmt.Login;
@@ -48,7 +50,7 @@ public class LoginImpl extends ExecutionContext implements Login {
     /*
      * Writing to click the logout button 
      */
-	public void e_Logout() {		
+	public void e_Logout() {
 		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/table/tbody/tr[1]/td/table/tbody/tr/td[3]/a/img"))).click();
 		WebElement logmessage=Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(text(),'Logged')]")));
 		String expectedtext="Logged Out Successfully";
@@ -83,12 +85,12 @@ public class LoginImpl extends ExecutionContext implements Login {
 		
 	}
 
-	public void e_Exit() {
+	/*public void e_Exit() {
 		// writing to go back to login page again
 		String bodyText = Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(text(),'User Name')]"))).getText();
 		Assert.assertTrue("Text not found!", bodyText.contains("User Name (CUID)"));
 			
-	}
+	}*/
 
 	
 	public void e_InvalidCredentials() {
@@ -110,6 +112,9 @@ public class LoginImpl extends ExecutionContext implements Login {
 		//click the report issue Link
 				
 		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a/font/strong[text()='CLICK HERE']"))).click();
+		Alert alert = Helper.getWaiter().until(ExpectedConditions.alertIsPresent());     
+		alert.authenticateUsing(new UserAndPassword("user" , "pass"));
+		
 			}
 
 	@Override

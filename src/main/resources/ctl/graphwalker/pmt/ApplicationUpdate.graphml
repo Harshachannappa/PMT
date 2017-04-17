@@ -67,7 +67,6 @@ SHARED: Home<y:LabelModel>
       </data>
     </node>
     <node id="n3">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="46.0" width="149.0" x="79.0" y="393.5"/>
@@ -85,7 +84,6 @@ SHARED: Home<y:LabelModel>
       </data>
     </node>
     <node id="n4">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="39.0" width="141.33333333333303" x="55.0" y="230.0"/>
@@ -154,7 +152,6 @@ REQTAG=UC1.0.0 2.0<y:LabelModel>
       </data>
     </edge>
     <edge id="e3" source="n1" target="n3">
-      <data key="d9"/>
       <data key="d10">
         <y:BezierEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -174,7 +171,6 @@ REQTAG=UC1.0.0 2.0<y:LabelModel>
       </data>
     </edge>
     <edge id="e4" source="n3" target="n4">
-      <data key="d9"/>
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="-39.22152561067675" sy="-23.018109700696698" tx="7.982750108683092" ty="19.515468076499246">
@@ -195,29 +191,18 @@ REQTAG=UC1.0.0 2.0<y:LabelModel>
       </data>
     </edge>
     <edge id="e5" source="n3" target="n3">
-      <data key="d9"/>
       <data key="d10">
         <y:ArcEdge>
-          <y:Path sx="0.0" sy="0.0" tx="66.72561550680709" ty="-22.985364760914365">
-            <y:Point x="161.9956512451172" y="332.8188781738281"/>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="153.5" y="416.5"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="118.076171875" x="-38.84779357910152" y="-108.38229370117188">e_AddAnotherProject
-[!NotDuplicate]<y:LabelModel>
-              <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartEdgeLabelModelParameter angle="6.283185307179586" distance="6.817707180422915" distanceToCenter="true" position="right" ratio="31.851512818106634" segment="-2"/>
-            </y:ModelParameter>
-            <y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/>
-          </y:EdgeLabel>
-          <y:Arc height="76.3514633178711" ratio="4.327479839324951" type="fixedRatio"/>
+          <y:Arc height="0.0" ratio="1.0" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
     </edge>
     <edge id="e6" source="n3" target="n3">
-      <data key="d9"/>
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -230,7 +215,6 @@ REQTAG=UC1.0.0 2.0<y:LabelModel>
       </data>
     </edge>
     <edge id="e7" source="n3" target="n3">
-      <data key="d9"/>
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -243,20 +227,6 @@ REQTAG=UC1.0.0 2.0<y:LabelModel>
       </data>
     </edge>
     <edge id="e8" source="n3" target="n3">
-      <data key="d9"/>
-      <data key="d10">
-        <y:ArcEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="153.5" y="416.5"/>
-          </y:Path>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:Arc height="0.0" ratio="1.0" type="fixedRatio"/>
-        </y:ArcEdge>
-      </data>
-    </edge>
-    <edge id="e9" source="n3" target="n3">
-      <data key="d9"/>
       <data key="d10">
         <y:BezierEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -265,8 +235,7 @@ REQTAG=UC1.0.0 2.0<y:LabelModel>
         </y:BezierEdge>
       </data>
     </edge>
-    <edge id="e10" source="n3" target="n3">
-      <data key="d9"/>
+    <edge id="e9" source="n3" target="n3">
       <data key="d10">
         <y:BezierEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -277,8 +246,7 @@ REQTAG=UC1.0.0 2.0<y:LabelModel>
         </y:BezierEdge>
       </data>
     </edge>
-    <edge id="e11" source="n3" target="n3">
-      <data key="d9"/>
+    <edge id="e10" source="n3" target="n3">
       <data key="d10">
         <y:QuadCurveEdge straightness="0.1">
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -287,29 +255,7 @@ REQTAG=UC1.0.0 2.0<y:LabelModel>
         </y:QuadCurveEdge>
       </data>
     </edge>
-    <edge id="e12" source="n3" target="n3">
-      <data key="d9"/>
-      <data key="d10">
-        <y:QuadCurveEdge straightness="0.1">
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="211.33333333333331" y="390.7500813802079"/>
-            <y:Point x="80.33333333333331" y="553.7500813802079"/>
-          </y:Path>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="111.4140625" x="-23.604784188880302" y="50.019062660367126">e_UpdateAppStatus<y:LabelModel>
-              <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartEdgeLabelModelParameter angle="6.283185307179586" distance="61.575893177575566" distanceToCenter="true" position="left" ratio="0.42668070016346216" segment="1"/>
-            </y:ModelParameter>
-            <y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/>
-          </y:EdgeLabel>
-        </y:QuadCurveEdge>
-      </data>
-    </edge>
-    <edge id="e13" source="n3" target="n1">
-      <data key="d9"/>
+    <edge id="e11" source="n3" target="n1">
       <data key="d10">
         <y:QuadCurveEdge straightness="0.1">
           <y:Path sx="18.499999999999943" sy="-16.749918619792084" tx="0.0" ty="0.0">

@@ -20,11 +20,11 @@ public class ApplicationUpdateImpl extends ExecutionContext implements Applicati
 		
 	}
 
-	@Override
+	/*@Override
 	public void e_UpdateAppStatus() {
 		// TODO click on update folder link, update end date and submit
 		
-	}
+	}*/
 
 	@Override
 	public void e_SaveAppStatus() {
@@ -73,11 +73,11 @@ public class ApplicationUpdateImpl extends ExecutionContext implements Applicati
 		
 	}
 
-	@Override
+/*	@Override
 	public void e_AddAnotherProject() {
 		// TODO populate the other project and handle the submit
 		
-	}
+	}*/
 
 	
 }
