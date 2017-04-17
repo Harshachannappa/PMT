@@ -3,11 +3,14 @@ package ctl.graphwalker.pmt.helper;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Iterator;
 import java.util.Random;
+import java.util.Set;
 
 /**
  * Created by krikar on 2015-02-01.
@@ -63,4 +66,27 @@ public class Helper {
     public static WebDriver getInstance() {
         return WebDriverHolder.INSTANCE;
     }
+    
+    
+    public static void windowhandles(WebDriver driver)
+   	{	
+   	Set<String> windows = driver.getWindowHandles();
+   	Iterator<String> it=windows.iterator();
+   	String Mainhndl=it.next();
+   	String Chidhndl=it.next();
+   	driver.switchTo().window(Chidhndl);
+
+   		}
+      	
+      	public static void alertwindow(WebDriver driver)
+      	{
+      		Helper.getWaiter().until(ExpectedConditions.alertIsPresent());
+   		driver.switchTo().alert().accept();	
+      	}
+      	
+   	public static void FrameHandle(WebDriver driver)
+   	{
+   		driver.switchTo().frame(2);
+   	}
+   	
 }

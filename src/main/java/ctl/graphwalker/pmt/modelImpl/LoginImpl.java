@@ -1,13 +1,17 @@
 package ctl.graphwalker.pmt.modelImpl;
 
+import java.util.Set;
+
 import org.graphwalker.core.machine.ExecutionContext;
 import org.graphwalker.java.annotation.AfterElement;
 import org.graphwalker.java.annotation.AfterExecution;
 import org.graphwalker.java.annotation.BeforeElement;
 import org.graphwalker.java.annotation.BeforeExecution;
 import org.graphwalker.java.annotation.GraphWalker;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import ctl.graphwalker.pmt.Login;
@@ -22,38 +26,45 @@ public class LoginImpl extends ExecutionContext implements Login {
 	WebDriver driver=null;
 
 	public void v_Home() {
-		//verify the home screen of application.
 		
-		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/table/tbody/tr/td/img")));
+		
+		//Verifying the homepage element
+		Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='loading']/form/table[1]/tbody/tr/td[3]"))).getText().contains("Effort should be entered in HH:MM format"));
 		
 	}
 
-	/* Added Helper.getWaiter to avoid quick hit. Its expecting elemet before it appears  */
-	public void e_ValidPremiumCredentials() {
+	/* Added Helper.getWaiter to avoid quick hit. Its expecting element before it appears  */
+	public void e_ValidPremiumCredentials() {	
 		
-		//driver.findElement(By.name("cuid")).sendKeys("AB72075");
-		//driver.findElement(By.name("password")).sendKeys("Ctli@075");
-		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("cuid")))
-	        .sendKeys("AB72075");
+		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("cuid"))).clear();
+		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("cuid"))).sendKeys("AB72075");
 		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("password")))
         .sendKeys("Ctli@075");
 		driver.findElement(By.xpath("/html/body/table/tbody/tr[1]/td/table/tbody/tr[5]/td[4]/table/tbody/tr[2]/td/form/table/tbody/tr[3]/td[1]/input[1]")).click();
-		driver.findElement(By.xpath("/html/body/table/tbody/tr[1]/td/table/tbody/tr/td[3]/a/img")).click();
+		Helper.alertwindow(driver);
 		
 	}
 
     /*
      * Writing to click the logout button 
      */
-	public void e_Logout() {
-		
+	public void e_Logout() {		
+		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/table/tbody/tr[1]/td/table/tbody/tr/td[3]/a/img"))).click();
+		WebElement logmessage=Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(text(),'Logged')]")));
+		String expectedtext="Logged Out Successfully";
+		String Actualtxt=logmessage.getText();
+		Assert.assertEquals(Actualtxt, expectedtext);
 		
 	}
 
 	public void v_LoginPrompted() {
-		//validate the login page of application			
-	Helper.getWaiter().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/table/tbody/tr[1]/td/table/tbody/tr[5]/td[4]/table/img")));
+		//validate the login page of application	
+   
+	String bodyText = Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(text(),'User Name')]"))).getText();
+	Assert.assertTrue("Text not found!", bodyText.contains("User Name (CUID)"));
 		
+		
+
 	}
    
 	@Override
@@ -64,7 +75,7 @@ public class LoginImpl extends ExecutionContext implements Login {
 	}
 	
 	public void e_StartClient() {
-		driver.switchTo().alert().accept();			
+		Helper.alertwindow(driver);			
 	}
 
 	public void e_Init() {
@@ -74,29 +85,50 @@ public class LoginImpl extends ExecutionContext implements Login {
 
 	public void e_Exit() {
 		// writing to go back to login page again
-		
+		String bodyText = Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(text(),'User Name')]"))).getText();
+		Assert.assertTrue("Text not found!", bodyText.contains("User Name (CUID)"));
+			
 	}
 
+	
 	public void e_InvalidCredentials() {
 		//pass invalid credential and verify the error messages
-		
+
+	Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("cuid"))).sendKeys("AB62075");
+	Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("password"))).sendKeys("Ctli@075");
+	driver.findElement(By.xpath("/html/body/table/tbody/tr[1]/td/table/tbody/tr[5]/td[4]/table/tbody/tr[2]/td/form/table/tbody/tr[3]/td[1]/input[1]")).click();
+	WebElement errormessage=Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(text(),'Invalid CUID')]")));
+	String expectedtext="Invalid CUID/Password";
+	String Actualtxt=errormessage.getText();
+	Assert.assertEquals(Actualtxt, expectedtext);
+			
 	}
+
 
 	@Override
 	public void e_ReportIssue() {
 		//click the report issue Link
-		
-	}
+				
+		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a/font/strong[text()='CLICK HERE']"))).click();
+			}
 
 	@Override
 	public void v_ReprtIssue() {
 		// verify if we reach to right Report issue Page
 		
+		
+		Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='idHomePageNewItem']"))).getText().contains("Add new item"));
+		Helper.getWaiter();
+		Helper.windowhandles(driver);
+     		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='idHomePageNewItem']"))).click();
+		
 	}
 	
+	
+
 	@BeforeExecution
     public void setup() {
-        System.out.println("PetClinic: Any setup steps happens here. " +
+        System.out.println("Graphwalker: Any setup steps happens here. " +
                            "The annotation @BeforeExecution makes sure that before any elements in the " +
                            "model is called, this method is called first");
         Helper.setup();
@@ -104,7 +136,7 @@ public class LoginImpl extends ExecutionContext implements Login {
 
     @AfterExecution
     public void cleanup() {
-        System.out.println("PetClinic: Any cleanup  steps happens here. " +
+        System.out.println("Graphwalker: Any cleanup  steps happens here. " +
                            "The annotation @AfterExecution makes sure that after the test is done, " +
                            "this method is called last.");
 //        Helper.tearDown();
@@ -119,8 +151,6 @@ public class LoginImpl extends ExecutionContext implements Login {
     public void printAfterElement() {
         System.out.println("After element " + getCurrentElement().getName());
     }
-
-
 
 	
 }
