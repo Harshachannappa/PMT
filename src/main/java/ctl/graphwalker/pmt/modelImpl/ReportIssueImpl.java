@@ -33,8 +33,8 @@ public class ReportIssueImpl extends ExecutionContext implements ReportIssue {
 	public void e_SubmitIssue() {
 		// add the values to the field and submit
 	
-		Helper.getInstance().switchTo().frame(Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//iframe[starts-with(@id,'DlgFrame')]"))));
-		Helper.getWaiter();
+		//Helper.getInstance().switchTo().frame(Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//iframe[starts-with(@id,'DlgFrame')]"))));
+		/*Helper.getWaiter();
 		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@title='Title Required Field']"))).sendKeys("Graphwalker Testing Please ignore ");
 		new Select(Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//select[@title='Status']")))).selectByIndex(1);
         new Select(Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//select[@title='Priority']")))).selectByIndex(1);
@@ -44,28 +44,28 @@ public class ReportIssueImpl extends ExecutionContext implements ReportIssue {
    	    new Select(Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//select[@title='Project SQA Required Field']")))).selectByIndex(2);
    	    new Select(Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//select[@title='SQA/SEPG Status']")))).selectByIndex(1);
    	    Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='ctl00_m_g_69850ceb_e267_4a38_bcdb_dccd35401267_savebutton2_ctl00_diidIOSaveItem']"))).click();
-		
+		*/
 	}
 
 	@Override
 	public void e_AddItem() {
 		// click the add item to get the screen
 		//driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		Helper.getWaiter();
-       Helper.windowhandles();
-	   Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='idHomePageNewItem']"))).click();
-	
+	//	Helper.getWaiter();
+    //   Helper.windowhandles();
+	//   Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='idHomePageNewItem']"))).click();
+	   //Helper.getInstance().switchTo().frame(2);
+	   
+	//   Helper.getInstance().switchTo().frame(Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//iframe[starts-with(@id,'DlgFrame')]"))));
 	}
 
 	@Override
 	public void v_PmtIssueTracker() {
 		// verify the issue tracker screen if it is properly
-	   
-	 
-	 Helper.getInstance().switchTo().frame(Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//iframe[starts-with(@id,'DlgFrame')]"))));
-	 Helper.getWaiter();
-	 Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.linkText("Click for help about adding basic HTML formatting."))).getText().contains("Click for help about adding basic HTML formatting."));
-		
+	   	
+	// Helper.getWaiter();
+	// Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.linkText("Click for help about adding basic HTML formatting."))).getText().contains("Click for help about adding basic HTML formatting."));
+	
 		
 		
 	}
@@ -77,7 +77,7 @@ public class ReportIssueImpl extends ExecutionContext implements ReportIssue {
 		// verify if issue added properly and landed back to Issue Tracker home.
 		
 
-		Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='group0']/td/a"))).getText().contains("Approval Status"));
+		//Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='group0']/td/a"))).getText().contains("Approval Status"));
 	
 		
 	}
