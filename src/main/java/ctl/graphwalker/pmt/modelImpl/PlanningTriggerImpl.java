@@ -1,7 +1,5 @@
 package ctl.graphwalker.pmt.modelImpl;
 
-import java.sql.Driver;
-
 import org.graphwalker.core.machine.ExecutionContext;
 import org.graphwalker.java.annotation.GraphWalker;
 import org.junit.Assert;

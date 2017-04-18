@@ -1,6 +1,6 @@
 package ctl.graphwalker.pmt.modelImpl;
 
-import java.util.Set;
+
 
 import org.graphwalker.core.machine.ExecutionContext;
 import org.graphwalker.java.annotation.AfterElement;
@@ -9,11 +9,8 @@ import org.graphwalker.java.annotation.BeforeElement;
 import org.graphwalker.java.annotation.BeforeExecution;
 import org.graphwalker.java.annotation.GraphWalker;
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.security.UserAndPassword;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import ctl.graphwalker.pmt.Login;
@@ -27,7 +24,7 @@ public class LoginImpl extends ExecutionContext implements Login {
 	
 	
 
-	private WebDriver driver;
+
 
 	public void v_Home() {
 		

@@ -1,15 +1,14 @@
 package ctl.graphwalker.pmt.helper;
 
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
@@ -17,7 +16,7 @@ import java.util.Set;
  * Created by krikar on 2015-02-01.
  */
 public class Helper {
-    private static final Logger log = LoggerFactory.getLogger(Helper.class);
+ 
 
     /**
      * Random number generator.
@@ -106,4 +105,40 @@ public class Helper {
 //   		Helper.getInstance().switchTo().frame(2);
 //   	}
    	
-}
+   	public static void calendercntrl()
+   	{
+   		List<WebElement> dates = Helper.getInstance().findElements(By.xpath("html/body/div[1]/table/tbody/tr/td"));
+        int total_start_dates = dates.size();
+        
+        for(int i=0;i<total_start_dates;i++)
+        {
+               String date = dates.get(i).getText();
+               if(date.equals("1"))
+               {
+                      dates.get(i).click();
+                      break;
+               }
+        }
+   	}
+        
+      public static void calendercntrl2()
+      
+      {
+    	  List<WebElement> dates1 = Helper.getInstance().findElements(By.xpath("html/body/div[2]/table/tbody/tr/td"));
+          int total_end_dates = dates1.size();
+          for(int i=0;i<total_end_dates;i++)
+          {
+                 String date1 = dates1.get(i).getText();
+                 if(date1.equals("26"))
+                 {
+                        dates1.get(i).click();
+                        break;
+                 }
+          }
+
+      }
+   	}
+   	
+   	
+   	
+

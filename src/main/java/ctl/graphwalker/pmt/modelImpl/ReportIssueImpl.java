@@ -1,14 +1,10 @@
 package ctl.graphwalker.pmt.modelImpl;
 
-import java.util.Set;
-
 import org.graphwalker.core.machine.ExecutionContext;
 import org.graphwalker.java.annotation.GraphWalker;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
@@ -36,7 +32,8 @@ public class ReportIssueImpl extends ExecutionContext implements ReportIssue {
 	@Override
 	public void e_SubmitIssue() {
 		// add the values to the field and submit
-//		Helper.getInstance().switchTo().frame(Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.id("onetidPageTitleAreaFrameScript"))));
+	
+		Helper.getInstance().switchTo().frame(Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//iframe[starts-with(@id,'DlgFrame')]"))));
 		Helper.getWaiter();
 		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@title='Title Required Field']"))).sendKeys("Graphwalker Testing Please ignore ");
 		new Select(Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//select[@title='Status']")))).selectByIndex(1);
