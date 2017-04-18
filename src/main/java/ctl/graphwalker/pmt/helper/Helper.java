@@ -70,26 +70,40 @@ public class Helper {
     }
     
     
-    public static void windowhandles(WebDriver driver)
-   	{	
-   	Set<String> windows = driver.getWindowHandles();
-   	Iterator<String> it=windows.iterator();
-   	String Mainhndl=it.next();
-   	String Chidhndl=it.next();
-   	driver.switchTo().window(Chidhndl);
+//    public static void windowhandles(WebDriver driver)
+//   	{	
+//   	Set<String> windows = driver.getWindowHandles();
+//   	Iterator<String> it=windows.iterator();
+//   	String Mainhndl=it.next();
+//   	String Chidhndl=it.next();
+//   driver.switchTo().window(Chidhndl);
+//
+//   		}
+    
+    public static void windowhandles()
+	{
 
-   		}
+	Set<String> windows = Helper.getInstance().getWindowHandles();
+  	 int count=0;
+  	 for (String window : windows) {
+		if(count ==1){
+			Helper.getInstance().switchTo().window(window);
+		}
+		count++;
+	}
+	}
+ 
       	
 
    	public static void alertwindow()
    	{
    		Helper.getWaiter().until(ExpectedConditions.alertIsPresent());
-		getInstance().switchTo().alert().accept();	
+		Helper.getInstance().switchTo().alert().accept();	
    	}
       	
-   	public static void FrameHandle(WebDriver driver)
-   	{
-   		driver.switchTo().frame(2);
-   	}
+//   	public static void FrameHandle()
+//   	{
+//   		Helper.getInstance().switchTo().frame(2);
+//   	}
    	
 }

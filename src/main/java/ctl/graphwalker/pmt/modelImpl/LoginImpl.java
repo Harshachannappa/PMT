@@ -27,11 +27,13 @@ public class LoginImpl extends ExecutionContext implements Login {
 	
 	
 
+	private WebDriver driver;
+
 	public void v_Home() {
 		
 		
 		//Verifying the homepage element
-		//Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='loading']/form/table[1]/tbody/tr/td[3]"))).getText().contains("Effort should be entered in HH:MM format"));
+		Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("html/body/table/tbody/tr[2]/td/form/table[2]/tbody/tr/td/font[1]/b"))).getText().contains("Approved/Active Projects"));
 		//Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@name='Search']"))).getText().contains("Search"));
 	}
 
@@ -39,9 +41,8 @@ public class LoginImpl extends ExecutionContext implements Login {
 	public void e_ValidPremiumCredentials() {	
 		
 		//Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("cuid"))).clear();
-		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("cuid"))).sendKeys("mmenom");
-		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("password")))
-        .sendKeys("122Meenu");
+		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("cuid"))).sendKeys("ab72075");
+		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("password"))).sendKeys("Ctli@075");
 		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/table/tbody/tr[1]/td/table/tbody/tr[5]/td[4]/table/tbody/tr[2]/td/form/table/tbody/tr[3]/td[1]/input[1]"))).click();
 		
 		
@@ -73,8 +74,8 @@ public class LoginImpl extends ExecutionContext implements Login {
 	public void v_BaseUrl() {
 		
 		Helper.getInstance().get("http://10.140.0.99:2010/T2-T3Code/jsp/logon.jsp");
-//		String baseurl="http://"+"mmenon"+":"+"122Meenu"+"@"+"10.140.0.99:2010/T2-T3Code/jsp/logon.jsp";
-//		driver.get(baseurl);
+		Helper.getInstance().manage().window().maximize();
+
 		
 	}
 	
@@ -114,20 +115,16 @@ public class LoginImpl extends ExecutionContext implements Login {
 		//click the report issue Link
 				
 		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a/font/strong[text()='CLICK HERE']"))).click();
-//		Alert alert = Helper.getWaiter().until(ExpectedConditions.alertIsPresent());     
-//		alert.authenticateUsing(new UserAndPassword("user" , "pass"));
-		
+
 			}
 
 	@Override
 	public void v_ReprtIssue() {
 		// verify if we reach to right Report issue Page
 		
-		
-		Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='idHomePageNewItem']"))).getText().contains("Add new item"));
-		Helper.getWaiter();
 		Helper.windowhandles();
-     	Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='idHomePageNewItem']"))).click();
+		Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='{BFF7A648-34EE-45D3-963E-12911AF0BD58}-{EA9077F0-B8B5-46EC-BC57-24C391A69436}']/tbody[1]/tr/th[2]/div"))).getText().contains("Edit"));
+		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='idHomePageNewItem']"))).click();
 		
 	}
 	

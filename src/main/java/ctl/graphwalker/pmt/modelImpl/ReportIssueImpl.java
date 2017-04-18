@@ -7,6 +7,8 @@ import org.graphwalker.java.annotation.GraphWalker;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
@@ -34,7 +36,8 @@ public class ReportIssueImpl extends ExecutionContext implements ReportIssue {
 	@Override
 	public void e_SubmitIssue() {
 		// add the values to the field and submit
-		
+//		Helper.getInstance().switchTo().frame(Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.id("onetidPageTitleAreaFrameScript"))));
+		Helper.getWaiter();
 		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@title='Title Required Field']"))).sendKeys("Graphwalker Testing Please ignore ");
 		new Select(Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//select[@title='Status']")))).selectByIndex(1);
         new Select(Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//select[@title='Priority']")))).selectByIndex(1);
@@ -52,26 +55,25 @@ public class ReportIssueImpl extends ExecutionContext implements ReportIssue {
 		// click the add item to get the screen
 		//driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		Helper.getWaiter();
-        Set<String> windows = driver.getWindowHandles();
-        int count=0;
-        for (String window : windows) {
-              if(count ==1){
-                     driver.switchTo().window(window);
-              }
-              count++;
-       }
-
-		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='idHomePageNewItem']"))).click();
-		
+       Helper.windowhandles();
+	   Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='idHomePageNewItem']"))).click();
+	
 	}
 
 	@Override
 	public void v_PmtIssueTracker() {
 		// verify the issue tracker screen if it is properly
-		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated((By.id("dialogTitleSpan"))));
-		Helper.FrameHandle(driver);
+	   
+	 
+	 Helper.getInstance().switchTo().frame(Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//iframe[starts-with(@id,'DlgFrame')]"))));
+	 Helper.getWaiter();
+	 Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.linkText("Click for help about adding basic HTML formatting."))).getText().contains("Click for help about adding basic HTML formatting."));
+		
+		
 		
 	}
+
+	
 
 	@Override
 	public void v_IssueAdded() {

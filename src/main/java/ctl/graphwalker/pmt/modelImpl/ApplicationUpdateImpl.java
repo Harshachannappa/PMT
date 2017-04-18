@@ -16,7 +16,7 @@ public class ApplicationUpdateImpl extends ExecutionContext implements Applicati
 		// TODO describe home application
 		
 		Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("html/body/table/tbody/tr[2]/td/form/table[2]/tbody/tr/td/font[1]/b"))).getText().contains("Approved/Active Projects"));
-		
+		//Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@name='Search']"))).getText().contains("Search"));
 		
 	
 		
@@ -29,7 +29,8 @@ public class ApplicationUpdateImpl extends ExecutionContext implements Applicati
 		
 		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='projectTable']/tbody/tr[1]/td[1]/a/img"))).click();
 		Helper.getWaiter();
-		Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@value='Project Closure']"))).getText().contains("Project Closure"));
+	    Helper.alertwindow();
+		Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='loading']/table/tbody/tr[1]/td/font/b"))).getText().contains("Project : .NET Ordering T3 Projects"));
 		
 		
 		
@@ -59,6 +60,8 @@ public class ApplicationUpdateImpl extends ExecutionContext implements Applicati
 	public void e_ProjectDetailsLoc() {
 		// TODO click the project detail folder link
 		
+		
+		
 	}
 
 	@Override
@@ -70,6 +73,8 @@ public class ApplicationUpdateImpl extends ExecutionContext implements Applicati
 	@Override
 	public void v_Application() {
 		// TODO verify application screen
+		Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='loading']/table/tbody/tr[1]/td/font/b"))).getText().contains("Project : .NET Ordering T3 Projects"));
+//		Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='jsp']/h3"))).getText().contains("Application"));
 		
 		
 	}
@@ -86,7 +91,7 @@ public class ApplicationUpdateImpl extends ExecutionContext implements Applicati
 	@Override
 	public void v_PlanningTrigger() {
 		// TODO verify planning trigger screen
-		Assert.assertTrue("Text not found!",Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.id("darTrigger"))).getText().contains("DAR Triggers	"));
+		Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='loading']/table/tbody/tr[1]/td/font/b"))).getText().contains("Project : .NET Ordering T3 Projects"));
 	   
 	}
 
