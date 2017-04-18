@@ -86,8 +86,11 @@ public class ReportIssueImpl extends ExecutionContext implements ReportIssue {
 	public void v_ReportIssue() {
 		// detail verification of screen
 
-		Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='idHomePageNewItem']"))).getText().contains("Add new item"));
-	
+	//	Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='idHomePageNewItem']"))).getText().contains("Add new item"));		
+		Helper.windowhandles();
+		Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='{BFF7A648-34EE-45D3-963E-12911AF0BD58}-{EA9077F0-B8B5-46EC-BC57-24C391A69436}']/tbody[1]/tr/th[2]/div"))).getText().contains("Edit"));
+		// Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='idHomePageNewItem']")));
+		
 	}
 	
 

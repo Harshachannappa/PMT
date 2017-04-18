@@ -42,8 +42,22 @@ public class ApplicationUpdateImpl extends ExecutionContext implements Applicati
 		Helper.calendercntrl();		
 		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.id("app_end_date_b"))).click();
 		Helper.calendercntrl2();
-		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("addApp"))).click();
-		Helper.alertwindow();
+		try{
+		if( Helper.getInstance().findElement(By.xpath(".//*[@id='applicationTable']/tbody/tr/td[1]")).getText().contains("EASE-ASR"))
+		{
+			Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("addApp"))).click();
+			Helper.alertwindow();
+		}
+		else
+		{
+			Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("addApp"))).click();
+		}
+		}
+		catch(Exception e)
+		{
+			Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("addApp"))).click();
+		}
+		
 	}
 
 	@Override
