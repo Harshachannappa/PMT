@@ -57,9 +57,11 @@ public class PlanningTriggerImpl extends ExecutionContext implements PlanningTri
 		// TODO verify record saved successfully
 		
 		
-		Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.visibilityOfElementLocated(By.id("msgBox"))).getText().contains("Saved Successfully"));
+	//	Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.visibilityOfElementLocated(By.id("msgBox"))).getText().contains("Saved Successfully"));
 
-		
+		Helper.getWaiter().until(ExpectedConditions.alertIsPresent());
+		Assert.assertEquals("Saved Successfully", Helper.getInstance().switchTo().alert().getText());
+		Helper.getInstance().switchTo().alert().accept(); 
 	}
 
 	
