@@ -11,9 +11,7 @@ import org.graphwalker.core.model.Edge.RuntimeEdge;
 import org.graphwalker.core.model.Element;
 import org.graphwalker.core.model.Vertex.RuntimeVertex;
 
-/**
- * @author Nils Olsson
- */
+
 public class GraphStreamObserver implements Observer {
 
     private final Graph graph;

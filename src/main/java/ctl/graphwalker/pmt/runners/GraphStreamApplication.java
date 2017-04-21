@@ -18,23 +18,26 @@ import java.io.IOException;
 public class GraphStreamApplication {
 
   public static void main(String[] args) throws IOException {
+	  Result result =null;
         System.setProperty("org.graphstream.ui.renderer",
                 "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
         Graph graph = new SingleGraph("GraphWalker MeetUp");
         graph.display(true);
         Executor executor = new TestExecutor(LoginImpl.class,
                 ApplicationUpdateImpl.class,
-                PlanningTriggerImpl.class,
-                ReportIssueImpl.class);
+                PlanningTriggerImpl.class);
+              //  ReportIssueImpl.class
         Observer observer = new GraphStreamObserver(graph);
         executor.getMachine().addObserver(observer);
-
-        Result result = executor.execute(true);
+  try{
+         result = executor.execute(true);
         if (result.hasErrors()) {
             for (String error : result.getErrors()) {
                 System.out.println(error);
             }
         }
+  }catch(Exception e){}  
+        
         System.out.println("Done: [" + result.getResults().toString(2) + "]");
     }
 }
