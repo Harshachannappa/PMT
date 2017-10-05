@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-import ctl.graphwalker.pmt.ReportIssue;
+import ctl.graphwalker.pmt.test.ReportIssue;
 import ctl.graphwalker.pmt.helper.Helper;
 
 @GraphWalker(value = "random(edge_coverage(100))")

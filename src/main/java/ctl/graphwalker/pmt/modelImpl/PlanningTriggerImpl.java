@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import ctl.graphwalker.pmt.PlanningTrigger;
+import ctl.graphwalker.pmt.test.PlanningTrigger;
 import ctl.graphwalker.pmt.helper.Helper;
 
 @GraphWalker(value = "random(edge_coverage(100))")

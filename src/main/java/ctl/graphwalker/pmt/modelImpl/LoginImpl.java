@@ -13,8 +13,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import ctl.graphwalker.pmt.Login;
+
 import ctl.graphwalker.pmt.helper.Helper;
+import ctl.graphwalker.pmt.test.Login;
 
 
 
@@ -70,7 +71,8 @@ public class LoginImpl extends ExecutionContext implements Login {
 	@Override
 	public void v_BaseUrl() {
 		
-		Helper.getInstance().get("http://10.140.0.99:2010/T2-T3Code/jsp/logon.jsp");
+		//Helper.getInstance().get("http://10.140.0.99:2010/T2-T3Code/jsp/logon.jsp");
+		Helper.getInstance().get("https://www.google.com/");
 		Helper.getInstance().manage().window().maximize();
 
 		

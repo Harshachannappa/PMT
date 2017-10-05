@@ -21,9 +21,32 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.graphwalker</groupId>
+                <artifactId>graphwalker-maven-plugin</artifactId>
+                <version>3.4.2</version>
+                <!-- Bind goals to the default lifecycle -->
+                <executions>
+                    <execution>
+                        <id>generate-sources</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate-sources</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+           
+            <plugin>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-maven-plugin</artifactId>
+            <version>1.9.9</version>
+              </plugin>
+              
+              
 		</plugins>
 	</build>
-
+   
 	<dependencies>
 		<dependency>
 			<groupId>org.graphwalker</groupId>
@@ -45,6 +68,7 @@
 			<artifactId>selenium-java</artifactId>
 			<version>3.3.1</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>

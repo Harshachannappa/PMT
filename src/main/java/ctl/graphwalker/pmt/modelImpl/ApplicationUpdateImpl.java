@@ -6,8 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-import ctl.graphwalker.pmt.ApplicationUpdate;
 import ctl.graphwalker.pmt.helper.Helper;
+import ctl.graphwalker.pmt.test.ApplicationUpdate;
 @GraphWalker(value = "random(edge_coverage(100))")
 public class ApplicationUpdateImpl extends ExecutionContext implements ApplicationUpdate {
 
