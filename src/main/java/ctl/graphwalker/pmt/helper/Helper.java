@@ -65,7 +65,7 @@ public class Helper {
      */
     public static WebDriver getInstance() {
     	//System.setProperty("webdriver.chrome.driver","C:\\_graphWalker\\chromedriver.exe");
-    	System.setProperty("webdriver.chrome.driver","C:\\Remedy_CTS_Change\\RemedyChange_Admin\\src\\test\\resources\\Drivers\\chromedriver.exe");
+    	System.setProperty("webdriver.chrome.driver","./src/main/resources/Exe/chromedriver.exe");
         return WebDriverHolder.INSTANCE;
     }
     
