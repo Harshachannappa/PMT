@@ -6,26 +6,27 @@ import org.graphwalker.core.event.Observer;
 import org.graphwalker.java.test.Executor;
 import org.graphwalker.java.test.Result;
 import org.graphwalker.java.test.TestExecutor;
+import org.junit.Test;
 
 import ctl.graphwalker.pmt.modelImpl.*;
 import ctl.graphwalker.pmt.observers.GraphStreamObserver;
 
 import java.io.IOException;
 
-/**
- * @author Rakesh Upadhayaya
- */
+
 public class GraphStreamApplication {
 
-  public static void main(String[] args) throws IOException {
+ // public static void main(String[] args) throws IOException {
+	
+	@Test
+	public void test() throws IOException{
 	  Result result =null;
         System.setProperty("org.graphstream.ui.renderer",
                 "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
         Graph graph = new SingleGraph("GraphWalker MeetUp");
         graph.display(true);
-        Executor executor = new TestExecutor(LoginImpl.class,
-                ApplicationUpdateImpl.class,
-                PlanningTriggerImpl.class);
+        Executor executor = new TestExecutor(LoginImpl.class
+                           );
               //  ReportIssueImpl.class
         Observer observer = new GraphStreamObserver(graph);
         executor.getMachine().addObserver(observer);

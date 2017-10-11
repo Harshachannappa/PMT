@@ -2,6 +2,8 @@ package ctl.graphwalker.pmt.modelImpl;
 
 
 
+import javax.xml.xpath.XPath;
+
 import org.graphwalker.core.machine.ExecutionContext;
 import org.graphwalker.java.annotation.AfterElement;
 import org.graphwalker.java.annotation.AfterExecution;
@@ -15,36 +17,94 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
 import ctl.graphwalker.pmt.helper.Helper;
-import ctl.graphwalker.pmt.test.Login;
+
+import ctl.graphwalker.pmt.test.LoginPmt;
 
 
 
 @GraphWalker(value = "random(edge_coverage(100))", start = "e_Init")
  
-public class LoginImpl extends ExecutionContext implements Login {
+public class LoginImpl extends ExecutionContext implements LoginPmt {
 	
 	
 
-
-
-	public void v_Home() {
+	@Override
+	public void v_BaseUrl() {
+		
+		Helper.getInstance().get("http://10.140.0.99:2010/T2-T3Code/jsp/logon.jsp");
+		
+		Helper.getInstance().manage().window().maximize();
+		
+		System.out.println("Done with launching the Application");
+		
+	}
+	
+	
+	public void e_StartClient() {
+	//	Helper.alertwindow();
+		System.out.println("Done handling any pop-up");
 		
 		
-		//Verifying the homepage element
-		Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("html/body/table/tbody/tr[2]/td/form/table[2]/tbody/tr/td/font[1]/b"))).getText().contains("Approved/Active Projects"));
-		//Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@name='Search']"))).getText().contains("Search"));
+	}
+	
+	@Override
+	public void v_LoginPrompted() {
+		// TODO Auto-generated method stub
+		
+		
+		System.out.println("Login page is displayed");
 	}
 
-	/* Added Helper.getWaiter to avoid quick hit. Its expecting element before it appears  */
-	public void e_ValidPremiumCredentials() {	
+	
+		public void e_ValidPremiumCredentials() {	
 		
 		//Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("cuid"))).clear();
 		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("cuid"))).sendKeys("ab72075");
 		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("password"))).sendKeys("Ctli@075");
-		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/table/tbody/tr[1]/td/table/tbody/tr[5]/td[4]/table/tbody/tr[2]/td/form/table/tbody/tr[3]/td[1]/input[1]"))).click();
+		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@value='Login']"))).click();
 		
+		System.out.println("Entered the credentials");
 		
 	}
+		
+		
+		public void e_InvalidCredentials() {
+			//pass invalid credential and verify the error messages
+
+		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("cuid"))).sendKeys("AB62075");
+		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("password"))).sendKeys("Ctli@075");
+		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/table/tbody/tr[1]/td/table/tbody/tr[5]/td[4]/table/tbody/tr[2]/td/form/table/tbody/tr[3]/td[1]/input[1]"))).click();
+		WebElement errormessage=Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(text(),'Invalid CUID')]")));
+		String expectedtext="Invalid CUID/Password";
+		String Actualtxt=errormessage.getText();
+		Assert.assertEquals(Actualtxt, expectedtext);
+			
+		System.out.println("Re-Entered the credentials Again");
+		}
+
+		
+		
+		@Override
+		public void v_Home() {
+			// TODO Auto-generated method stub
+			Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[text()='Project']")));
+			System.out.println("We are at the Home page");
+		}
+		
+		
+
+		
+	public void v_Project() throws InterruptedException {
+		
+		
+		//Verifying the homepage element
+		//Thread.sleep(2000);
+		Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//ul[@id='jsddm']")));
+		//Assert.assertTrue("Text not found!", Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@name='Search']"))).getText().contains("Search"));
+	}
+
+	/* Added Helper.getWaiter to avoid quick hit. Its expecting element before it appears  */
+	
 
     /*
      * Writing to click the logout button 
@@ -58,29 +118,21 @@ public class LoginImpl extends ExecutionContext implements Login {
 		
 	}
 
-	public void v_LoginPrompted() {
+	/*public void v_LoginPrompted() throws InterruptedException {
 		//validate the login page of application	
-   
-	String bodyText = Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(text(),'User Name')]"))).getText();
-	Assert.assertTrue("Text not found!", bodyText.contains("User Name (CUID)"));
-		
-		
-
-	}
-   
-	@Override
-	public void v_BaseUrl() {
-		
-		//Helper.getInstance().get("http://10.140.0.99:2010/T2-T3Code/jsp/logon.jsp");
-		Helper.getInstance().get("https://www.google.com/");
-		Helper.getInstance().manage().window().maximize();
-
-		
-	}
 	
-	public void e_StartClient() {
-	//	Helper.alertwindow();			
-	}
+	Helper.getInstance().findElement(By.xpath("//a[text()='Project']")).click();
+	//Thread.sleep(2000);
+	//Helper.getInstance().findElement(By.xpath("//a[text()='Create/Search Project']")).click();
+   
+//	String bodyText = Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(text(),'User Name')]"))).getText();
+//	Assert.assertTrue("Text not found!", bodyText.contains("User Name (CUID)"));
+		
+		
+
+	}*/
+   
+	
 
 	public void e_Init() {
 		Helper.getInstance();
@@ -95,18 +147,6 @@ public class LoginImpl extends ExecutionContext implements Login {
 	}*/
 
 	
-	public void e_InvalidCredentials() {
-		//pass invalid credential and verify the error messages
-
-	Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("cuid"))).sendKeys("AB62075");
-	Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.name("password"))).sendKeys("Ctli@075");
-	Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/table/tbody/tr[1]/td/table/tbody/tr[5]/td[4]/table/tbody/tr[2]/td/form/table/tbody/tr[3]/td[1]/input[1]"))).click();
-	WebElement errormessage=Helper.getWaiter().until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(text(),'Invalid CUID')]")));
-	String expectedtext="Invalid CUID/Password";
-	String Actualtxt=errormessage.getText();
-	Assert.assertEquals(Actualtxt, expectedtext);
-			
-	}
 
 
 /*	@Override
@@ -154,6 +194,10 @@ public class LoginImpl extends ExecutionContext implements Login {
     public void printAfterElement() {
         System.out.println("After element " + getCurrentElement().getName());
     }
+
+	
+
+	
 
 	
 }

@@ -5,24 +5,21 @@ import org.graphwalker.java.annotation.Model;
 import org.graphwalker.java.annotation.Vertex;
 import org.graphwalker.java.annotation.Edge;
 
-@Model(file = "ctl/graphwalker/pmt/ReportIssue.graphml")
-public interface ReportIssue {
+@Model(file = "ctl/graphwalker/pmt/ProjectCreate.graphml")
+public interface ProjectCreate {
 
     @Edge()
-    void e_LogoutSharePoint();
+    void e_EnterAllRequiredDetail();
+
+    @Vertex()
+    void v_Project();
+
+    @Vertex()
+    void v_CreateProject();
 
     @Edge()
-    void e_SubmitIssue();
-
-    @Edge()
-    void e_AddItem();
+    void e_ProjectDetailsLoc();
 
     @Vertex()
-    void v_PmtIssueTracker();
-
-    @Vertex()
-    void v_IssueAdded();
-
-    @Vertex()
-    void v_ReportIssue();
+    void v_SubmitProject();
 }

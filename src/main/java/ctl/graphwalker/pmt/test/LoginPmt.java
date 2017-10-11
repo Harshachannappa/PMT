@@ -5,21 +5,24 @@ import org.graphwalker.java.annotation.Model;
 import org.graphwalker.java.annotation.Vertex;
 import org.graphwalker.java.annotation.Edge;
 
-@Model(file = "ctl/graphwalker/pmt/PlanningTrigger.graphml")
-public interface PlanningTrigger {
+@Model(file = "ctl/graphwalker/pmt/LoginPmt.graphml")
+public interface LoginPmt {
 
     @Vertex()
-    void v_CorrectData();
+    void v_Home();
 
     @Edge()
-    void e_CorrectData();
+    void e_ValidPremiumCredentials();
+
+    @Vertex()
+    void v_LoginPrompted();
+
+    @Vertex()
+    void v_BaseUrl();
 
     @Edge()
-    void e_IncorrectData();
+    void e_StartClient();
 
-    @Vertex()
-    void v_IncorrectData();
-
-    @Vertex()
-    void v_PlanningTrigger();
+    @Edge()
+    void e_Init();
 }
