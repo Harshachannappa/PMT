@@ -3,11 +3,13 @@ package ctl.graphwalker.pmt.helper;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
@@ -95,8 +97,29 @@ public class Helper {
 	}
 	}
  
-      	
+    public static void mouseHover(WebElement ele) {
+		try {
+			WebDriverWait dWait = new WebDriverWait(Helper.getInstance(), timeOut);
+			ele = dWait.until(ExpectedConditions.visibilityOf(ele));
+			Actions action = new Actions(Helper.getInstance());
+			action.moveToElement(ele).perform();
+		} catch (Exception e) {
+			throw new Error("Failed mouseHover() with Exception: " + e.getMessage());
+		}
+	}
 
+    public static void jsClick(WebElement element) {
+		try {
+			
+			JavascriptExecutor executor = (JavascriptExecutor) Helper.getInstance();
+			executor.executeScript("arguments[0].click();", element);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Error("unable to click by java script");
+
+		}
+
+	}
 //   	public static void alertwindow()
 //   	{
 //   		Helper.getWaiter().until(ExpectedConditions.alertIsPresent());
