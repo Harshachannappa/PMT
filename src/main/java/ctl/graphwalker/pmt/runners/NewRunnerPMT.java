@@ -11,10 +11,18 @@ import org.graphwalker.java.test.TestExecutor;
 import org.junit.Test;
 
 import ctl.graphwalker.pmt.modelImpl.CreateApprovalIMPL;
+import ctl.graphwalker.pmt.modelImpl.CreatePMTProjectImpl;
 import ctl.graphwalker.pmt.modelImpl.LoginImpl;
 import ctl.graphwalker.pmt.modelImpl.LoginMangerimpl;
+import ctl.graphwalker.pmt.modelImpl.Main_PMTFlowImpl;
 import ctl.graphwalker.pmt.modelImpl.ProjectClosureImpl;
 import ctl.graphwalker.pmt.modelImpl.SearchProjectImpl;
+import ctl.graphwalker.pmt.modelImpl.Test11Impl;
+import ctl.graphwalker.pmt.modelImpl.Test2Impl;
+import ctl.graphwalker.pmt.modelImpl.Test3Impl;
+import ctl.graphwalker.pmt.modelImpl.Test4Impl;
+import ctl.graphwalker.pmt.modelImpl.Test5Impl;
+import ctl.graphwalker.pmt.modelImpl.Test6Impl;
 import ctl.graphwalker.pmt.modelImpl.UpdateProjectImpl;
 import ctl.graphwalker.pmt.modelImpl.Updated_LoginPMTImpl;
 import ctl.graphwalker.pmt.observers.GraphStreamObserver;
@@ -29,12 +37,13 @@ public class NewRunnerPMT {
 	                "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
 	        Graph graph = new SingleGraph("GraphWalker MeetUp");
 	        graph.display(true);
-	        Executor executor = new TestExecutor(/*LoginImpl.class,
-	        		CreateApprovalIMPL.class,
-	        		SearchProjectImpl.class,
-	        		UpdateProjectImpl.class,
-	        		ProjectClosureImpl.class*/
-	        		Updated_LoginPMTImpl.class
+	        Executor executor = new TestExecutor(Test11Impl.class,
+	        		Test2Impl.class,
+	        		Test3Impl.class,
+	        		Test4Impl.class,
+	        		Test5Impl.class,
+	        		Test6Impl.class
+	        		
 	                           );
 	        Observer observer = new GraphStreamObserver(graph);
 	        executor.getMachine().addObserver(observer);

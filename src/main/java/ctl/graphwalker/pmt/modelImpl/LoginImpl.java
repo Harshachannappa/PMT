@@ -12,6 +12,7 @@ import org.graphwalker.java.annotation.BeforeExecution;
 import org.graphwalker.java.annotation.GraphWalker;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -42,7 +43,11 @@ public class LoginImpl extends ExecutionContext implements LoginPmt {
 	
 	
 	public void e_StartClient() {
-	//	Helper.alertwindow();
+	try{
+		
+	}catch(NoSuchElementException e){
+		
+	}
 		System.out.println("Done handling any pop-up");
 		
 		

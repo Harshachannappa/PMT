@@ -13,6 +13,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.Set;
 
@@ -162,6 +163,16 @@ public class Helper {
                  }
           }
 
+      }
+      
+      public static boolean isElementPresent(By by){
+          try{
+        	  Helper.getInstance().findElement(by);
+              return true;
+          }
+          catch(NoSuchElementException e){
+              return false;
+          }
       }
    	}
    	
